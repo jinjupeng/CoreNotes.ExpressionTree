@@ -6,20 +6,30 @@ namespace CoreNotes.Test
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void ReturnsSqlString_ShouldReturnTrue()
         {
+            var expectedResult = "SELECT * FROM [Article] WHERE (Article.UserId = '1' )  ";
+            var exp = DbUtilityFactory.GetDbUtility().GetSqlExpression<ArticleEntity>();
+            
+            exp.Where(a => a.UserId == 1);
+
+            var result = $"SELECT * FROM [{ exp.TableName }] WHERE { exp.WhereStr }";
+
+            Assert.AreEqual(expectedResult, result);
         }
 
         [Test]
-        public void Test1()
+        public void ReturnsSqlSortString_ShouldReturnTrue()
         {
-            var userID = 1;
+            var expectedResult = "SELECT * FROM [Article] ORDER BY Article.ArticleDate DESC ";
             var exp = DbUtilityFactory.GetDbUtility().GetSqlExpression<ArticleEntity>();
-            exp.Where(a => a.UserId == userID);
+
             exp.OrderByDescending(a => a.ArticleDate);
-            // var data = DbUtilityFactory.GetDbUtility().Paged<ArticleEntity>(a => a.ArticleDate, 1, 6);
-            Assert.Pass();
+
+            var result = $"SELECT * FROM [{ exp.TableName }] ORDER BY { exp.OrderByStr }";
+
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }

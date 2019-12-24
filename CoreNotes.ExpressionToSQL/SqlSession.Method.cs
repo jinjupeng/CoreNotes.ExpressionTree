@@ -123,8 +123,8 @@ namespace CoreNotes.ExpressionToSQL
         /// <param name="func"></param>
         public void Join<Target>(Expression<Func<Target, T, bool>> func)
         {
-            var targetfields = "," + EntityHelper.GetFiledString<Target>();
-            Field += targetfields;
+            var targetFields = "," + EntityHelper.GetFiledString<Target>();
+            Field += targetFields;
             JoinStr += "INNER JOIN " + EntityHelper.GetTableName<Target>() + " ON ";
             JoinStr += ExpressionHelper.GetSqlByExpression(func.Body) + " ";
         }
@@ -141,8 +141,8 @@ namespace CoreNotes.ExpressionToSQL
             {
                 throw new NotSupportedException("联表时还没有联接: " + EntityHelper.GetTableName<TSource>());
             }
-            var targetfields = "," + EntityHelper.GetFiledString<Target>();
-            Field += targetfields;
+            var targetFields = "," + EntityHelper.GetFiledString<Target>();
+            Field += targetFields;
             JoinStr += "INNER JOIN " + EntityHelper.GetTableName<Target>() + " ON ";
             JoinStr += ExpressionHelper.GetSqlByExpression(func.Body) + " ";
         }

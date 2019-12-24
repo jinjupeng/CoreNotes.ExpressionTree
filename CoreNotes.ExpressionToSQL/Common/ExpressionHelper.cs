@@ -100,6 +100,7 @@ namespace CoreNotes.ExpressionToSQL.Common
         /// <returns></returns>
         private static string VisitMemberAccessExpression(MemberExpression func)
         {
+            // string类型和DateTime类型需要加单引号，其它类型不需要加
             try
             {
                 var tableName = EntityHelper.GetTableName(func.Expression.Type);
@@ -259,33 +260,33 @@ namespace CoreNotes.ExpressionToSQL.Common
             switch (expressionType)
             {
                 case ExpressionType.Add:
-                    return " + ";
+                    return "+";
                 case ExpressionType.And:
-                    return " & ";
+                    return "&";
                 case ExpressionType.AndAlso:
-                    return " and ";
+                    return "AND";
                 case ExpressionType.Equal:
-                    return " = ";
+                    return "=";
                 case ExpressionType.NotEqual:
-                    return " <> ";
+                    return "<>";
                 case ExpressionType.GreaterThan:
-                    return " > ";
+                    return ">";
                 case ExpressionType.GreaterThanOrEqual:
-                    return " >= ";
+                    return ">=";
                 case ExpressionType.LessThan:
-                    return " < ";
+                    return "<";
                 case ExpressionType.LessThanOrEqual:
-                    return " <= ";
+                    return "<=";
                 case ExpressionType.Subtract: 
-                    return " - ";
+                    return "-";
                 case ExpressionType.Multiply:
-                    return " * ";
+                    return "*";
                 case ExpressionType.Divide: 
-                    return " / ";
+                    return "/";
                 case ExpressionType.Or:
-                    return " | ";
+                    return "|";
                 case ExpressionType.OrElse:
-                    return " or ";
+                    return "OR";
                 default:
                     return "";
             }
