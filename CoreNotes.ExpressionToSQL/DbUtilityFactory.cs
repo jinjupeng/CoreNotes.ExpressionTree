@@ -3,6 +3,9 @@ using System.Configuration;
 
 namespace CoreNotes.ExpressionToSQL
 {
+    /// <summary>
+    /// 工厂类
+    /// </summary>
     public class DbUtilityFactory
     {
         public static IDbUtility GetDbUtility()

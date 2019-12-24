@@ -109,6 +109,7 @@ namespace CoreNotes.ExpressionToSQL.Common
             catch
             {
                 object value;
+                // string类型和DateTime类型需要加单引号，其它类型不需要加
                 switch (func.Type.Name)
                 {
                     case "Int32":
@@ -149,10 +150,10 @@ namespace CoreNotes.ExpressionToSQL.Common
         {
             if (func.Method.Name.Contains("Contains"))
             {
-                //获得调用者的内容元素
+                // 获得调用者的内容元素
                 var getter = Expression.Lambda<Func<object>>(func.Object).Compile();
                 var data = getter() as IEnumerable;
-                //获得字段
+                // 获得字段
                 var caller = func.Arguments[0];
                 while (caller.NodeType == ExpressionType.Call)
                 {

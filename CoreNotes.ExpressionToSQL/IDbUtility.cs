@@ -5,6 +5,9 @@ using System.Linq.Expressions;
 
 namespace CoreNotes.ExpressionToSQL
 {
+    /// <summary>
+    /// 基本思想，将MsSqlDbUtility和MySqlDbUtility设计成单例模式，通过App.config或Web.config进行默认的数据库设置，然后通过DbUtilityFactory获取DbUtility
+    /// </summary>
     public interface IDbUtility
     {
         /// <summary>

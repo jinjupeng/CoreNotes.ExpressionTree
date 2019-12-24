@@ -32,7 +32,7 @@ namespace CoreNotes.ExpressionToSQL.MsSqlDbUtility
         {
             var property = obj.GetType().GetProperty(key);
             var type = property.PropertyType.Name;
-            if (value is System.DBNull)
+            if (value is DBNull)
             {
                 property.SetValue(obj, null, null);
                 return;

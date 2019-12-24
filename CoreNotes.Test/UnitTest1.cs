@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using CoreNotes.ExpressionToSQL;
 using CoreNotes.ExpressionToSQL.Entity;
 using NUnit.Framework;
@@ -30,6 +32,33 @@ namespace CoreNotes.Test
             var result = $"SELECT * FROM [{ exp.TableName }] ORDER BY { exp.OrderByStr }";
 
             Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        public void AssSignalRecord_ShouldReturnTrue()
+        {
+            var expectedResult = "SELECT * FROM [Article] ORDER BY Article.ArticleDate DESC ";
+            var article = new ArticleEntity
+            {
+                ArticleId = 1,
+                //分类ID
+                CategoryId = 1,
+                //文章标题
+                ArticleTitle = "test",
+                //文章版权
+                ArticleCopyright = "test", 
+                //文章创建时间
+                ArticleDate = DateTime.Now,
+                //文章摘要
+                ArticleAbstract = "test",
+                //文章内容
+                ArticleContain = "test",
+                //文章所属User
+                 UserId = 1
+            };
+            var exp = DbUtilityFactory.GetDbUtility().Add(article);
+
+            
         }
     }
 }

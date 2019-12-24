@@ -59,6 +59,8 @@ Add
 
 [C# 表达式树讲解（一）(重点)](https://www.cnblogs.com/snailblog/p/11521043.html)
 
+[SqlHelper简单实现（通过Expression和反射）1.引言](https://www.cnblogs.com/kakura/p/6108828.html)
+
 [C#表达式树](https://www.cnblogs.com/zhouyg2017/p/11989790.html)
 
 (https://www.cnblogs.com/zhouyg2017/archive/2019/12/06/11989790.html)

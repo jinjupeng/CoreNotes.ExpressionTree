@@ -3,6 +3,10 @@ using CoreNotes.ExpressionToSQL.Common;
 
 namespace CoreNotes.ExpressionToSQL
 {
+    /// <summary>
+    /// 基本思想就是通过EntityHelper，ObjectHelper和ExpressionHelper获取拼接Select语句的全部元素，拼接出完整Select语句
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public partial class SqlSession<T>
     {
         public SqlSession()

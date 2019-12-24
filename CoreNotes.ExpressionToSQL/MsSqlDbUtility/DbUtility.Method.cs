@@ -201,7 +201,7 @@ namespace CoreNotes.ExpressionToSQL.MsSqlDbUtility
         /// 批量添加记录
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="list"></param>
+        /// <param name="objs"></param>
         public int AddList<T>(List<T> objs) where T : class
         {
             if (!objs.Any())
