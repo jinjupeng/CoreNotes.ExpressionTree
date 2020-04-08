@@ -65,5 +65,8 @@ Add
 
 (https://www.cnblogs.com/zhouyg2017/archive/2019/12/06/11989790.html)
 
+[C# Expression 树转化为SQL语句（一）](https://www.cnblogs.com/linxingxunyan/p/6245396.html)
 
+[ExpressionToSQL](https://www.cnblogs.com/zengpeng/p/11319190.html)
 
+[lambda表达式转换sql](https://www.cnblogs.com/maiaimei/p/7147049.html)

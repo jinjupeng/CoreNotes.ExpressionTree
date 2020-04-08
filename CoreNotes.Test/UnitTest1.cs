@@ -35,6 +35,32 @@ namespace CoreNotes.Test
         }
 
         [Test]
+        public void ReturnsSqlString2_ShouldReturnTrue()
+        {
+            var expectedResult = "SELECT * FROM [Article] WHERE (Article.UserId = '1' )  ";
+            var exp = DbUtilityFactory.GetDbUtility().GetSqlExpression<ArticleEntity>();
+
+            exp.Where(a => a.UserId == 1 && a.ArticleId == 2);
+
+            var result = $"SELECT * FROM [{ exp.TableName }] WHERE { exp.WhereStr }";
+
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        public void ReturnsSqlString3_ShouldReturnTrue()
+        {
+            var expectedResult = "SELECT * FROM [Article] WHERE (Article.UserId = '1' )  ";
+            var exp = DbUtilityFactory.GetDbUtility().GetSqlExpression<ArticleEntity>();
+
+            exp.Where(a => a.ArticleDate == DateTime.Now);
+
+            var result = $"SELECT * FROM [{ exp.TableName }] WHERE { exp.WhereStr }";
+
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
         public void AssSignalRecord_ShouldReturnTrue()
         {
             var expectedResult = "SELECT * FROM [Article] ORDER BY Article.ArticleDate DESC ";
